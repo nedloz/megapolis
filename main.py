@@ -5,6 +5,7 @@ for el in data:
     el[2] = el[2].split()
     el[3] = el[3].split()
 data.pop(0)
+# print(data.pop(0), data)
 
 for el in data:
     n = int(el[0].split('-')[1][0]) # первая цифра в номере корабля
@@ -37,10 +38,21 @@ for el in data:
     if el[0].split('-')[0][-1] == 'V':
         print(el[0] + ' - (<' + el[2].split()[0]+'>, <' + el[2].split()[1] + '>)')
 
-for i in range(1, len(a)):
-    x = a[i]
+for el in data:
+    el[2] = el[2].split()
+    el[3] = el[3].split()
+
+def getNum(name):
+    code, num = name.split('-')
+    return num
+
+for i in range(1, len(data)):
+    x = data[i]
     j = i
-    while j > 0 and float(getNum(a[j-1][0])) > float(getnum(x[0])):
-        a[j] = a[j-1]
+    while j > 0 and float(getNum(data[j-1][0])) > float(getNum(x[0])):
+        data[j] = data[j-1]
         j-=1
-    a[j]=x
+    data[j]=x
+b = data[:10]
+for el in b:
+    print(el[0])
