@@ -36,3 +36,11 @@ for el in data:
     f.write('*'.join(el)+'\n')
     if el[0].split('-')[0][-1] == 'V':
         print(el[0] + ' - (<' + el[2].split()[0]+'>, <' + el[2].split()[1] + '>)')
+
+for i in range(1, len(a)):
+    x = a[i]
+    j = i
+    while j > 0 and float(getNum(a[j-1][0])) > float(getnum(x[0])):
+        a[j] = a[j-1]
+        j-=1
+    a[j]=x
